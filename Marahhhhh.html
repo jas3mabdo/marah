@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>لي مروحتييي نور حياتي 💖</title>
+  <style>
+    body {
+      background: #ffe6f7; 
+      color: #ad1457;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+      animation: pop 1.5s;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.3); opacity:0;}
+      90% { transform: scale(1.05);}
+      100% { transform: scale(1); opacity:1;}
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #ec407a, #f06292);
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: background 0.6s;
+      box-shadow: 0 2px 8px #ececec;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #ab47bc, #f06292);
+    }
+    #compliment {
+      margin-top: 40px;
+      font-size: 2em;
+      color: #6a1b9a;
+      min-height: 60px;
+      transition: opacity 0.5s;
+    }
+    .heart {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      z-index: 1000;
+      animation: float 3s linear forwards;
+      opacity: 0.85;
+    }
+    @keyframes float {
+      to {
+        transform: translateY(-100vh) scale(1.1) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>لي افضل شخصص في حياتييي 💖</h1>
+  <p>
+    درتها ليك انتي بسس يعيوني لانك بجد احلا شي يصيرلييي في حياتي
+    (رصييي على بطنة باش تلقي كلام حلووو وليك بسس❤️!)
+  </p>
+  <button id="btn">Show Me a Compliment</button>
+  <div id="compliment"></div>
+  <script>
+    const compliments = [
+      "انتي راك نورررر حياتييييي 💡",
+      "راهوووو ضحكتكك احلاا شي تشوفها عيوني 🌷",
+      "وكل لحضة معاك متتعوضش بكل يعيوني ✨",
+      "وتخلي في قلبيي معاك ديمااا يدق وبسرعةة💓",
+      " نعرف ناس حاجتين يا يكون حلو من برا ومن داخل لا يا منضره مش حلو و من داخل اسعد انسان لاكن انتي جيتي زوز مروحتيي 🌹",
+      "محلاهااا حياتيي وانتي قاعدة جنبي🌺",
+      "وانتي راك حياتي كلها مروحتي🫂❤️",
+      "قداش ماني محظوظ اني تعرفت عليك وفوق منها حبيتككك🍀",
+      "وراك انتي اهم انجزاتي راك وبجد اول مرا نحس بي هدا كلا ومعاك🚀",
+      "ومفيش حاجة تتقارن بطيبة قلبك  ❤️",
+      "على شن بنبدا نحكي على اول يوم تكلمنه فيه مروحتي ولا نحكي على اول مرا قتلك نحبك ؟؟ ولا على شعور لي جاني ؟🥲❤️ شعور لي جاني هدا راهو والله مش حنقدر نوصفه من كتر مافي هلبا حجات خشات في بعضه من قلبي لي يرقص وينقز من فرحة ولا من جسمي لي جاته رعشة قوية ولا من توتر فجئة لي جاني ؟ يشهد بالله كان نقعد نحكي لي غدوا مش حنقدر نوصفلك شعور ولا نقدر نحكيلك على حبي كيف معاك❤️❤️ ونحبكككك مروحتي",
+      "حبيبتي كل لحظة معاك راهو كنز غالي على قلبي من لما تلاقينه عرفت أنك مميزة من جميع صفات و بجد اول انسان يخليني نضحك هكي ونفرح زي توا وينسيني جميععع هموم دنية. نحبك",
+
+
+    ];
+    document.getElementById('btn').onclick = function() {
+      const c = compliments[Math.floor(Math.random() * compliments.length)];
+      const el = document.getElementById('compliment');
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = c;
+        el.style.opacity = 1;
+      }, 300);
+      createHeart();
+    }
+
+    // Floating heart animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML =
+        `<svg width="40" height="40" viewBox="0 0 40 40">
+          <path d="M20 35s-10.1-8.33-13.13-13.63C2.21 16.23 4.28 10 10.13 10c2.73 0 5.06 1.57 6.31 4.03C17.81 11.57 20.13 10 22.87 10c5.85 0 7.92 6.23 3.26 11.37C30.1 26.67 20 35 20 35z"
+            fill="#ec407a" stroke="#ad1457" stroke-width="1"/>
+        </svg>`;
+      heart.style.left = Math.random() * (window.innerWidth - 40) + "px";
+      heart.style.bottom = "-40px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    }
+    // Start some hearts automatically
+    setInterval(createHeart, 2000);
+  </script>
+</body>
+</html>
